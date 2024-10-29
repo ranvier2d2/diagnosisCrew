@@ -1,0 +1,78 @@
+gather_history_task:
+  description: >
+    Provide guidelines on how to collect a comprehensive patient history based on chief complaint: {chief_complaint}. 
+    Identify areas needing further exploration based on the clinical context.
+  expected_output: >
+    Patient History Guidelines for Chief Complaint: {chief_complaint}:
+
+    - **Suggested Further Exploration:**
+      - Questions or areas that require further investigation based on the initial findings and clinical context.
+    - **Suggested Topics for Further Anamnesis:**
+      - Additional medical conditions, medications, allergies, family history aspects, social history elements, and review of systems symptoms that should be further explored.
+  agent: history_taker
+
+
+perform_examination_task:
+  description: >
+    Provide guidelines on how to create a targeted physical examination template based on the patient history: {chief_complaint}. 
+    Suggest additional areas to examine with clinical context justifications.
+  expected_output: >
+    Physical Examination Guidelines for Chief Complaint: {chief_complaint}:
+
+    - **Suggested Further Examinations:**
+      - Areas to be further examined with justifications based on the clinical context.
+    - **Suggested Detailed Examination Areas:**
+      - Additional areas in general appearance, vitals, and specific systems (neurological, musculoskeletal, cardiovascular, respiratory) that should be further explored.
+  agent: examiner
+
+
+generate_differential_diagnosis_task:
+  description: >
+    Provide guidelines on how to generate a differential diagnosis based on the patient history and physical examination findings related to chief complaint: {chief_complaint}. 
+    Provide rationales and probabilities for suggested diagnoses.
+  expected_output: >
+    Differential Diagnosis Guidelines for Chief Complaint: {chief_complaint}:
+
+    - **Suggested Diagnoses:**
+      - List of potential diagnoses with rationales based on the clinical context.
+    - **Rationale for Each Diagnosis:**
+      - Explanations for why each suggested diagnosis is considered, including probabilities based on clinical findings.
+  agent: diagnostician
+
+
+bayesian_reasoning_task:
+  description: >
+    Provide guidelines on how to refine the differential diagnosis using Bayesian reasoning for {chief_complaint}. 
+    Adjust probabilities based on baseline knowledge and current findings. Separate known data from probabilistic reasoning.
+  expected_output: >
+    Bayesian Analysis Guidelines for chief complaint: {chief_complaint}:
+
+    - **Refined Diagnoses:**
+      - Diagnoses with adjusted probabilities.
+    - **Rationale for Each Adjustment:**
+      - Explanations for probability adjustments based on clinical findings and Bayesian reasoning.
+  agent: diagnostician
+
+
+synthesize_diagnostic_framework_task:
+  description: >
+    Provide guidelines on how to integrate all gathered information and advanced medical reasoning into a comprehensive diagnostic framework for the patient history: {chief_complaint}. 
+    It should contain the suggestions from the Patient History Guidelines, Physical Examination Guidelines, and Bayesian Analysis Guidelines.
+    Highlight key clinical points and provide rationales for diagnostic conclusions.
+  expected_output: >
+    Diagnostic Framework Guidelines for Chief Complaint: {chief_complaint}:
+
+    - **Patient History Guidelines:**
+      - Suggested Further Exploration:
+      - Suggested Topics for Further Anamnesis:
+    - **Physical Examination Guidelines:**
+      - Suggested Further Examinations:
+      - Suggested Detailed Examination Areas:
+    - **Bayesian Analysis Guidelines:**
+      - Refined Diagnoses:
+      - Rationale for Each Diagnosis:
+    - **Integrated Reasoning and Guidance:**
+      - Comprehensive synthesis of the proposed diagnostic framework.
+    - **Rationales for Diagnostic Conclusions:**
+      - Explanations for each diagnostic conclusion based on integrated data.
+  agent: diagnostician
