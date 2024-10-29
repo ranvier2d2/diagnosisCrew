@@ -1,3 +1,5 @@
+# TODO: Optimize LLM model; fix the context for each task; optimize the prompts
+
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
